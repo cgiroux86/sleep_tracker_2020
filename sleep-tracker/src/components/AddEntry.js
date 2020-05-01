@@ -10,11 +10,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "../styles/authStyles";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
-import {
-  MuiPickersUtilsProvider,
-  KeyboardTimePicker,
-  KeyboardDatePicker,
-} from "@material-ui/pickers";
+import DateTimePicker from "react-datetime-picker";
 
 const WhiteTextField = withStyles({
   root: {
@@ -66,11 +62,23 @@ const AddEntry = () => {
     bad: false,
   });
 
-  const [date, setDate] = useState([new Date("2014-08-18T21:11:54")]);
+  const [startDate, setStartDate] = useState({ date: new Date() });
 
   const handleChange = (e) => {
     setValues({ ...values, [e.target.name]: e.target.value });
     console.log(values);
+  };
+
+  const hanldeDateCahnge = (date) => {
+    console.log(date);
+    setStartDate({ ...date, date: date });
+  };
+
+  const [endDate, setEndDate] = useState({ date: new Date() });
+
+  const handleEndDate = (date) => {
+    setEndDate({ ...date, date: date });
+    console.log(endDate);
   };
 
   const handleStartScore = () => {
@@ -112,31 +120,15 @@ const AddEntry = () => {
   let err = {};
 
   const handleSubmit = (e) => {
-    console.log(
-      values.sleep_start_time.match(
-        /\b((1[0-2]|0?[1-9]):([0-5][0-9])\s?([AaPp][Mm]))/gm
-      )
-    );
-    const formatTime = values.sleep_start_time.split(/[ampm]/gi);
-    const timeOfDay = values.sleep_start_time.match(/[ampm]/gi);
-    const fT = values.sleep_end_time.split(/[am]/gi);
-    const tOD1 = values.sleep_end_time.match(/[ampm]/gi);
-
-    // console.log(formatTime, timeOfDay);
-
-    // console.log(`${formatTime.join("")}:00${timeOfDay.join("")}`);
     e.preventDefault();
     const user = {
-      // sleep_start: `${values.sleep_start_date} ${values.sleep_start_time}`,
-      sleep_start: `${values.sleep_start_date} ${formatTime.join(
-        ""
-      )}:00 ${timeOfDay.join("")}`,
+      sleep_start: new Date(`${startDate.date}`),
       start_score: handleStartScore(),
-      // sleep_end: `${values.sleep_start_date} ${values.sleep_end_time}`,
-      sleep_end: `${values.sleep_end_date} ${fT.join("")}:00 ${tOD1.join("")}`,
+      sleep_end: new Date(`${endDate.date}`),
       end_score: handleEndScore(),
       overall_score: handleOverallScore(),
     };
+    console.log(startDate, endDate);
     axiosWithAuth()
       .post("https://sleep-tracker2020.herokuapp.com/api/users/", user)
       .then((res) => {
@@ -152,37 +144,11 @@ const AddEntry = () => {
       <div className="input-holder">
         <h1 style={{ color: "#e0e0e0", textAlign: "center" }}>Sleep start</h1>
         <form className="form">
-          {/* <MuiPickersUtilsProvider utils={MomentUtils} className="text-field">
-            <KeyboardDatePicker
-              variant="inline"
-              format="MM/dd/yy"
-              margin="normal"
-              id="date-picker-inline"
-              label="Date picker inline"
-              value={date}
-              onChange={setDate}
-              KeyboardButtonProps={{
-                "aria-label": "change date",
-              }}
-            /> */}
-          <WhiteTextField
-            id="standard-required"
-            type="date"
-            placeholder={`yyyy-mm-dd`}
-            name="sleep_start_date"
-            onChange={handleChange}
-          ></WhiteTextField>
-          {/* </MuiPickersUtilsProvider> */}
-          <div className="text-field">
-            <WhiteTextField
-              required
-              id="standard-required"
-              type="time"
-              placeholder={`hh:mm(am/pm)`}
-              name="sleep_start_time"
-              onChange={handleChange}
-            ></WhiteTextField>
-          </div>
+          <DateTimePicker
+            className="react-datetimepicker"
+            onChange={hanldeDateCahnge}
+            value={startDate.date}
+          />
         </form>
         <div className="icon-container">
           <div
@@ -254,24 +220,11 @@ const AddEntry = () => {
       <div className="input-holder">
         <h1 style={{ color: "#e0e0e0", textAlign: "center" }}>Sleep End</h1>
         <form className="form">
-          <div className="text-field">
-            <WhiteTextField
-              required
-              id="standard-required"
-              placeholder={`yyyy-mm-dd`}
-              name="sleep_end_date"
-              onChange={handleChange}
-            ></WhiteTextField>
-          </div>
-          <div className="text-field">
-            <WhiteTextField
-              required
-              id="standard-required"
-              placeholder={`hh:mm(am/pm)`}
-              name="sleep_end_time"
-              onChange={handleChange}
-            ></WhiteTextField>
-          </div>
+          <DateTimePicker
+            className="react-datetimepicker"
+            onChange={handleEndDate}
+            value={endDate.date}
+          />
         </form>
         <div className="icon-container">
           <div
@@ -343,24 +296,11 @@ const AddEntry = () => {
       <div className="input-holder">
         <h1 style={{ color: "#e0e0e0", textAlign: "center" }}>Daily Mood</h1>
         <form className="form">
-          <div className="text-field">
-            <WhiteTextField
-              required
-              id="standard-required"
-              placeholder={`yyyy-mm-dd`}
-              name="sleep_end_date"
-              onChange={handleChange}
-            ></WhiteTextField>
-          </div>
-          <div className="text-field">
-            <WhiteTextField
-              required
-              id="standard-required"
-              placeholder={`hh:mm(am/pm)`}
-              name="sleep_end_time"
-              onChange={handleChange}
-            ></WhiteTextField>
-          </div>
+          <DateTimePicker
+            className="react-datetimepicker"
+            onChange={handleEndDate}
+            value={endDate.date}
+          />
         </form>
         <div className="icon-container">
           <div

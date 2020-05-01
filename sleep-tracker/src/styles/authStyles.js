@@ -111,7 +111,7 @@ export const PaperContainer = styled.div`
 export const Paper = styled.div`
    {
     background: #121212;
-    width: 50%;
+    width: auto;
     margin: 2%;
   }
 `;

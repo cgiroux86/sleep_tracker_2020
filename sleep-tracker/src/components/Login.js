@@ -101,6 +101,7 @@ const Login = () => {
               value={input.email}
               name="email"
               onChange={handleChange}
+              autoFocus
             />
           </FormControl>
         </InputContainer>
@@ -119,7 +120,7 @@ const Login = () => {
               value={input.password}
               name="password"
               onChange={handleChange}
-              autoComplete="off"
+              autoFocus
               endAdornment={
                 <InputAdornment position="end">
                   <IconButton
