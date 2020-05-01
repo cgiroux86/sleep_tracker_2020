@@ -95,6 +95,6 @@ export const helper = (time) => {
       : time.getHours();
   var minutes = (time.getMinutes() < 10 ? "0" : "") + time.getMinutes();
   var ampm = time.getHours() < 12 ? "AM" : "PM";
-  var formattedTime = hours + 4 + ":" + minutes + " " + ampm;
+  var formattedTime = hours + ":" + minutes + " " + ampm;
   return formattedTime;
 };

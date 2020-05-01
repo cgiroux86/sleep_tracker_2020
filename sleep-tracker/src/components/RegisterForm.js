@@ -72,6 +72,7 @@ const RegisterForm = () => {
                 marginTop: "100px",
                 backgroundColor: "#39869D",
                 color: "#e0e0e0",
+                borderRadius: "10px",
               }}
               onClick={handleSubmit}
             >
@@ -127,27 +128,34 @@ const RegisterForm = () => {
           </FormControl>
         </FormContainer>
         <NamesContainer>
-          <div>
-            <FormControl className="navBar" variant="outlined">
-              <InputLabel
-                style={{ color: "#e0e0e0" }}
-                htmlFor="outlined-adornment-firstName"
+          <div className="name-wrapper">
+            <div>
+              <FormControl
+                className="navBar"
+                variant="outlined"
+                style={{ marginRight: "50px" }}
               >
-                First Name
-              </InputLabel>
-              <OutlinedInput
-                style={{ color: "white", width: "250px" }}
-                id="outlined-adornment-firstName"
-                type="text"
-                value={values.firstName}
-                onChange={handleChange("firstName")}
-              />
-            </FormControl>
+                <InputLabel
+                  style={{ color: "#e0e0e0" }}
+                  htmlFor="outlined-adornment-firstName"
+                >
+                  First Name
+                </InputLabel>
+                <OutlinedInput
+                  style={{ color: "white", width: "250px" }}
+                  id="outlined-adornment-firstName"
+                  type="text"
+                  value={values.firstName}
+                  onChange={handleChange("firstName")}
+                />
+              </FormControl>
+            </div>
           </div>
+
           <div>
             <FormControl className="navBar" variant="outlined">
               <InputLabel
-                style={{ color: "#e0e0e0" }}
+                style={{ color: "#e0e0e0", width: "250px" }}
                 htmlFor="outlined=adornment-lastName"
               >
                 Last Name

@@ -71,6 +71,9 @@ body {
   justify-content: center;
   width: 50%;
   margin: 0 auto;
+  align-items: center;
+  position: relative;
+  bottom: 70px;
 }
 
 .graph_wrapper {
@@ -113,4 +116,6 @@ body {
   border-radius: 0;
   display: inline-block;
   position: relative;
+}
+.name-wrapper {
 }

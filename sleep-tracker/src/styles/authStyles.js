@@ -25,8 +25,8 @@ export const NamesContainer = styled.div`
    {
     display: flex;
     flex-drection: row-reverse;
-    width: 40%;
-    justify-content: space-between;
+    width: 100%;
+    justify-content: center;
   }
 `;
 
@@ -89,12 +89,14 @@ export const LoginButtonContainer = styled.div`
    {
     position: relative;
     left: 40px;
+    bottom: 50px;
   }
 `;
 
 export const HomeContainer = styled.div`
    {
     display: flex;
+    border: 1px solid orange;
   }
 `;
 
@@ -102,8 +104,8 @@ export const PaperContainer = styled.div`
    {
     display: flex;
     flex-wrap: wrap;
-    flex-direction: row;
-    width: 100%;
+    flex-direction: column;
+    width: 50%;
     justify-content: center;
   }
 `;
