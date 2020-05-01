@@ -1,0 +1,10 @@
+export const HANDLE_REGISTER = "HANDLE_REGISTER";
+export const SET_USER = "SET_USER";
+export const REGISTER_FAILURE = "REGISTER_FAILURE";
+export const FETCH_CREDS = "FETCH_CREDS";
+export const LOGIN_FAILURE = "LOGIN_FAILURE";
+export const LOGIN_SUCCESS = "LOGIN_SUCCESS";
+export const SET_DATA = "SET_DATA";
+export const GET_WEEKS = "GET_WEEKS";
+export const SET_FORMATTED = "SET_FORMATTED";
+export const SET_LOGOUT = "SET_LOGOUT";

@@ -1,0 +1,83 @@
+body {
+  background: black;
+}
+.navBar {
+  color: #e0e0e0;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  background: #121212;
+}
+.navLink {
+  color: #e0e0e0;
+}
+#standard-required {
+  color: #e0e0e0;
+  opacity: 1;
+}
+
+.input-holder {
+  background: #121212;
+  width: auto;
+  margin: 1% auto;
+}
+.form {
+  display: flex;
+  justify-content: space-between;
+}
+.off {
+  font-size: 50px;
+  color: #e0e0e0;
+}
+.happy {
+  color: yellow;
+  font-size: 50px;
+}
+
+.far {
+  font: outline;
+  font-size: 50px;
+}
+.icon-container {
+  display: flex;
+  justify-content: space-evenly;
+  width: 80%;
+  margin: 20px auto;
+}
+.icon-wrapper {
+  width: 100%;
+}
+
+.add-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  padding-top: 2%;
+}
+.text-field {
+  margin: 0 20px;
+}
+.entry {
+  display: flex;
+  justify-content: center;
+  width: 100%;
+}
+.button-holder {
+  display: flex;
+  justify-content: center;
+  width: 50%;
+  margin: 0 auto;
+}
+
+.graph_wrapper {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+}
+
+.p_container {
+  margin: 10px;
+}
+.h_container {
+  text-align: center;
+}
