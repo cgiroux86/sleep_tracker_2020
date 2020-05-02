@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-import { withStyles, TextField, Nodal } from "@material-ui/core";
-import { EditIcon } from "@material-ui/icons";
+
 import {
   faSmile,
   faFrown,
@@ -12,35 +11,14 @@ import { Button } from "../styles/authStyles";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
 import DateTimePicker from "react-datetime-picker";
+import { useDispatch } from "react-redux";
+import { setData } from "../redux/actions/authActions";
+import { getWeek, formatDate } from "../utils/helpers";
 
-const WhiteTextField = withStyles({
-  root: {
-    "& .MuiInputBase-input": {
-      color: "#e0e0e0", // Text color
-    },
-    "& .MuiInput-underline:before": {
-      borderBottomColor: "#e0e0e0", // Semi-transparent underline
-    },
-    "& .MuiInput-underline:hover:before": {
-      borderBottomColor: "#e0e0e0", // Solid underline on hover
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "#e0e0e0", // Solid underline on focus
-    },
-  },
-})(TextField);
-
-const AddEntry = () => {
+const ModalForm = (props) => {
   const history = useHistory();
-  const [values, setValues] = useState({
-    sleep_start_date: new Date("2020-04-29"),
-    sleep_start_time: "",
-    start_score: null,
-    sleep_end_date: "",
-    sleep_end_time: "",
-    end_score: null,
-    overall_mood: null,
-  });
+
+  const dispatch = useDispatch();
 
   const [overall, setOverall] = useState({
     excellent: false,
@@ -63,12 +41,10 @@ const AddEntry = () => {
     bad: false,
   });
 
-  const [startDate, setStartDate] = useState({ date: new Date() });
-
-  // i
+  const [startDate, setStartDate] = useState({ date: props.date });
 
   const hanldeDateCahnge = (date) => {
-    // console.log(date);
+    console.log(date);
     setStartDate({ ...date, date: date });
   };
 
@@ -113,9 +89,8 @@ const AddEntry = () => {
       ? 2
       : overall.bad
       ? 1
-      : 10;
+      : null;
   };
-  let err = {};
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -126,12 +101,25 @@ const AddEntry = () => {
       end_score: handleEndScore(),
       overall_score: handleOverallScore(),
     };
-    console.log(startDate, endDate);
+
     axiosWithAuth()
-      .post("https://sleep-tracker2020.herokuapp.com/api/users/", user)
+      .put(
+        `https://sleep-tracker2020.herokuapp.com/api/users/${props.id}`,
+        user
+      )
       .then((res) => {
-        console.log(user);
-        history.push("/homepage");
+        const week = getWeek(user.sleep_start);
+        console.log(week);
+        axiosWithAuth()
+          .get(
+            `https://sleep-tracker2020.herokuapp.com/api/users/dates?start=${formatDate(
+              week[0]
+            )}&end=${formatDate(week[1])}`
+          )
+          .then((res) => {
+            console.log(res.data);
+            dispatch(setData(res.data));
+          });
       })
 
       .catch((err) => console.log(err));
@@ -139,7 +127,7 @@ const AddEntry = () => {
 
   return (
     <div className="add-wrapper">
-      <div className="input-holder">
+      <div className="modal-holder">
         <h1 style={{ color: "#e0e0e0", textAlign: "center" }}>Sleep start</h1>
         <form className="form">
           <DateTimePicker
@@ -215,7 +203,7 @@ const AddEntry = () => {
           </div>
         </div>
       </div>
-      <div className="input-holder">
+      <div className="modal-holder">
         <h1 style={{ color: "#e0e0e0", textAlign: "center" }}>Sleep End</h1>
         <form className="form">
           <DateTimePicker
@@ -291,7 +279,7 @@ const AddEntry = () => {
           </div>
         </div>
       </div>
-      <div className="input-holder">
+      <div className="modal-holder">
         <h1 style={{ color: "#e0e0e0", textAlign: "center" }}>Daily Mood</h1>
         <form className="form">
           <DateTimePicker
@@ -367,8 +355,11 @@ const AddEntry = () => {
           </div>
         </div>
       </div>
-      <div className="button-holder">
-        <Button className="entry" onClick={handleSubmit}>
+      <div>
+        <Button
+          style={{ position: "relative", bottom: "50px" }}
+          onClick={handleSubmit}
+        >
           Add entry
         </Button>
       </div>
@@ -376,4 +367,4 @@ const AddEntry = () => {
   );
 };
 
-export default AddEntry;
+export default ModalForm;

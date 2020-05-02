@@ -73,7 +73,7 @@ body {
   margin: 0 auto;
   align-items: center;
   position: relative;
-  bottom: 70px;
+  bottom: 50px;
 }
 
 .graph_wrapper {
@@ -117,5 +117,15 @@ body {
   display: inline-block;
   position: relative;
 }
-.name-wrapper {
+.modal-wrapper {
+  display: flex;
+  height: 50vh;
+  width: 50%;
+}
+.modal {
+  opacity: 0.9;
+}
+
+.modal-holder {
+  width: auto;
 }

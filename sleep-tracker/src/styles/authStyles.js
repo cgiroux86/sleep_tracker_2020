@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { Modal } from "@material-ui/core";
 export const Container = styled.div`
    {
     display: flex;
@@ -96,7 +97,6 @@ export const LoginButtonContainer = styled.div`
 export const HomeContainer = styled.div`
    {
     display: flex;
-    border: 1px solid orange;
   }
 `;
 
@@ -161,5 +161,15 @@ export const ButtonHolder = styled.div`
     aligh-items: center;
     position: relative;
     bottom: 75px;
+  }
+`;
+
+export const StyledModal = styled(Modal)`
+   {
+        &:active: {
+      outline: none,
+},
+    border: 5px solid lime;
+  
   }
 `;

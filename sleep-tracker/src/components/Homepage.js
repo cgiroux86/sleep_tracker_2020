@@ -23,22 +23,32 @@ import {
   ExpansionPanelSummary,
   ExpansionPanelDetails,
   Typography,
+  Container,
+  Dialog,
+  DialogContent,
 } from "@material-ui/core";
-import { ExpandMore as ExpandMoreIcon } from "@material-ui/icons";
+import {
+  ExpandMore as ExpandMoreIcon,
+  Edit as EditIcon,
+  Delete as DeleteIcon,
+} from "@material-ui/icons";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import ModalForm from "../components/ModalForm";
+import DeleteModal from "./DeleteModal";
 
 const Homepage = () => {
   const userInfo = useSelector((state) => state);
   const dispatch = useDispatch();
   const [expanded, setExpanded] = useState(false);
   const [weeks, setWeeks] = useState(userInfo.weeks);
+  const [open, setOpen] = useState(false);
 
   useEffect(() => {
     setWeeks(userInfo.weeks);
   }, [userInfo.weeks]);
 
   useEffect(() => {
-    if (userInfo.data && userInfo.id !== null) {
+    if (userInfo.data) {
       const token = localStorage.getItem("token");
       let [start, end] = getWeek(new Date());
       start = formatDate(start);
@@ -83,6 +93,13 @@ const Homepage = () => {
     setWeeks(single.concat(total));
   };
 
+  const handleOpen = () => {
+    setOpen(true);
+  };
+
+  const handleClose = () => {
+    setOpen(false);
+  };
   return (
     <Holder>
       <GraphContainer>
@@ -201,11 +218,10 @@ const Homepage = () => {
           {userInfo.data &&
             userInfo.data.length > 0 &&
             userInfo.data.map((elem) => {
-              console.log(userInfo.data);
+              console.log(elem.id);
               const hours = getHours(elem.sleep_start, elem.sleep_end);
               const h1 = new Date(elem.sleep_start);
               const helped1 = helper(h1);
-              console.log(hours);
 
               return (
                 <Paper style={{ color: "white" }} key={elem.id}>
@@ -225,6 +241,23 @@ const Homepage = () => {
                   <p className="h_container">
                     Hours: {`${Math.floor(hours.hours)}hr ${hours.min}min`}
                   </p>
+                  <EditIcon id="edit-icon" onClick={handleOpen} />
+                  <Dialog
+                    className="modal"
+                    maxWidth="lg"
+                    PaperComponent={ModalForm}
+                    PaperProps={{ id: elem.id }}
+                    open={open}
+                    onClose={handleClose}
+                    aria-labelledby="edit-icon"
+                  >
+                    <DialogContent style={{ width: "1000px" }}>
+                      <Container>
+                        <ModalForm />
+                      </Container>
+                    </DialogContent>
+                  </Dialog>
+                  <DeleteModal id={elem.id} sleep_start={elem.sleep_start} />
                 </Paper>
               );
             })}

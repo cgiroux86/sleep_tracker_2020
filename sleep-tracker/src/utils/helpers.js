@@ -69,8 +69,6 @@ export const getHours = (d1, d2) => {
   const minutes1 = 60 - Number(m1);
   const minutes2 = 60 - Number(m2);
 
-  console.log(minutes1, minutes2, (minutes1 + minutes2) % 60);
-
   if (Number(day1) == Number(day2)) {
     return {
       hours: Number(h2) - Number(h1),

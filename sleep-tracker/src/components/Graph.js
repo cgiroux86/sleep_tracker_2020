@@ -15,10 +15,10 @@ const Graph = () => {
       setFormatted(
         data.map((elem) => getHours(elem.sleep_start, elem.sleep_end))
       );
+    } else {
+      setFormatted([]);
     }
   }, [data]);
-
-  console.log(formatted);
 
   return (
     <div className="graph_wrapper">
