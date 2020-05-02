@@ -129,3 +129,39 @@ body {
 .modal-holder {
   width: auto;
 }
+.icons-supplier {
+  display: flex;
+  flex-direction: row-reverse;
+  justify-content: space-between;
+  align-items: center;
+}
+.icon-spacer {
+  display: flex;
+  justify-content: space-around;
+  width: 30%;
+}
+.mood-container {
+  display: flex;
+  color: yellow;
+  font-size: 1.6rem;
+  margin-right: 20px;
+  width: 30%;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.sleepRec {
+  width: 100%;
+  margin: 0 auto;
+  color: #e0e0e0;
+  text-align: center;
+}
+
+.home-wrapper {
+  display: flex;
+  flex-direction: column;
+}
+.sleep-icon {
+  display: flex;
+  align-items: center;
+}

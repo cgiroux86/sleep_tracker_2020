@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import {
   FormControl,
   InputLabel,
@@ -27,37 +27,32 @@ import Axios from "axios";
 import { getWeek, formatDate, getTotalWeeks } from "../utils/helpers";
 
 const Login = () => {
+  let [start, end] = getWeek(new Date());
+  start = formatDate(start);
+  end = formatDate(end);
+
+  if (localStorage.getItem("logged") && localStorage.getItem("token")) {
+    Axios.get(
+      `https://sleep-tracker2020.herokuapp.com/api/users/dates/?start=${start}&end=${end}`,
+      {
+        headers: { Authorization: localStorage.getItem("token") },
+      }
+    )
+      .then((res) => {
+        console.log(res);
+        dispatch(loginSuccess());
+        dispatch(setData(res.data));
+        dispatch(getWeeks(getTotalWeeks()));
+        history.push("/homepage");
+      })
+      .catch((err) => console.log(err));
+  }
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useHistory();
 
   const [input, setInput] = useState({ ...state, showPassword: false });
   const [logged, setLogged] = useState(false);
-
-  useEffect(() => {
-    let [start, end] = getWeek(new Date());
-    start = formatDate(start);
-    end = formatDate(end);
-
-    console.log(start, end);
-
-    if (localStorage.getItem("logged") && localStorage.getItem("token")) {
-      Axios.get(
-        `https://sleep-tracker2020.herokuapp.com/api/users/dates/?start=${start}&end=${end}`,
-        {
-          headers: { Authorization: localStorage.getItem("token") },
-        }
-      )
-        .then((res) => {
-          console.log(res);
-          dispatch(loginSuccess());
-          dispatch(setData(res.data));
-          dispatch(getWeeks(getTotalWeeks()));
-          history.push("/homepage");
-        })
-        .catch((err) => console.log(err));
-    }
-  }, []);
 
   const handleChange = (e) => {
     setInput({ ...input, [e.target.name]: e.target.value });

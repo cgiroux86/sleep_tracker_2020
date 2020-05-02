@@ -12,7 +12,6 @@ import { useDispatch } from "react-redux";
 import { setData } from "../redux/actions/authActions";
 
 const DeleteModal = (props) => {
-  console.log(props);
   const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
 

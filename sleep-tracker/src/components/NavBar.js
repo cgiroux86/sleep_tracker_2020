@@ -2,6 +2,7 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLogout } from "../redux/actions/authActions";
 import { useHistory } from "react-router-dom";
+import SleepRec from "./SleepRec";
 
 const NavBar = () => {
   const logged = useSelector((state) => state.loggedIn);
@@ -16,7 +17,9 @@ const NavBar = () => {
   return (
     <div className="navBar">
       <h1>Sleep Tracker</h1>
-      <div>About</div>
+      <div>
+        <SleepRec />
+      </div>
       <div>Settings</div>
       <div onClick={handleLogout}>{logged ? "Log Out" : "Login"}</div>
     </div>

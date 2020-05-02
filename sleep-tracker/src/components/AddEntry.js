@@ -1,6 +1,4 @@
 import React, { useState } from "react";
-import { withStyles, TextField, Nodal } from "@material-ui/core";
-import { EditIcon } from "@material-ui/icons";
 import {
   faSmile,
   faFrown,
@@ -13,34 +11,8 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 import { useHistory } from "react-router-dom";
 import DateTimePicker from "react-datetime-picker";
 
-const WhiteTextField = withStyles({
-  root: {
-    "& .MuiInputBase-input": {
-      color: "#e0e0e0", // Text color
-    },
-    "& .MuiInput-underline:before": {
-      borderBottomColor: "#e0e0e0", // Semi-transparent underline
-    },
-    "& .MuiInput-underline:hover:before": {
-      borderBottomColor: "#e0e0e0", // Solid underline on hover
-    },
-    "& .MuiInput-underline:after": {
-      borderBottomColor: "#e0e0e0", // Solid underline on focus
-    },
-  },
-})(TextField);
-
 const AddEntry = () => {
   const history = useHistory();
-  const [values, setValues] = useState({
-    sleep_start_date: new Date("2020-04-29"),
-    sleep_start_time: "",
-    start_score: null,
-    sleep_end_date: "",
-    sleep_end_time: "",
-    end_score: null,
-    overall_mood: null,
-  });
 
   const [overall, setOverall] = useState({
     excellent: false,

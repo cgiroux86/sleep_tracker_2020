@@ -9,15 +9,12 @@ import {
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { Button } from "../styles/authStyles";
 import { axiosWithAuth } from "../utils/axiosWithAuth";
-import { useHistory } from "react-router-dom";
 import DateTimePicker from "react-datetime-picker";
 import { useDispatch } from "react-redux";
 import { setData } from "../redux/actions/authActions";
 import { getWeek, formatDate } from "../utils/helpers";
 
 const ModalForm = (props) => {
-  const history = useHistory();
-
   const dispatch = useDispatch();
 
   const [overall, setOverall] = useState({

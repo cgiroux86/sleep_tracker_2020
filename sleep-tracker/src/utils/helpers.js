@@ -29,7 +29,7 @@ export const getWeeksInMonth = (month, year) => {
 export const getWeek = (date = Date.now()) => {
   const dToday = new Date(date); // current date of week
   const currentWeekDay = dToday.getDay();
-  const lessDays = currentWeekDay == 0 ? 6 : currentWeekDay - 1;
+  const lessDays = Number(currentWeekDay) === 0 ? 6 : currentWeekDay - 1;
   const wkStart = new Date(
     new Date(dToday).setDate(dToday.getDate() - lessDays)
   );
@@ -57,42 +57,34 @@ export const getHours = (d1, d2) => {
   const date1 = `${new Date(d1)}`;
   const date2 = `${new Date(d2)}`;
 
-  const wd1 = date1.split(" ").slice(0, 1)[0];
   const wd2 = date2.split(" ").slice(0, 1)[0];
-  const day1 = date1.split(" ").slice(2, 3)[0];
-  const day2 = date2.split(" ").slice(2, 3)[0];
-  const h1 = date1.split(" ").slice(4, 5)[0].split(":")[0];
-  const h2 = date2.split(" ").slice(4, 5)[0].split(":")[0];
-  const m1 = date1.split(" ").slice(4, 5)[0].split(":")[1];
-  const m2 = date2.split(" ").slice(4, 5)[0].split(":")[1];
 
-  const minutes1 = 60 - Number(m1);
-  const minutes2 = 60 - Number(m2);
+  const diff = new Date(d2).getTime() - new Date(d1).getTime();
 
-  if (Number(day1) == Number(day2)) {
-    return {
-      hours: Number(h2) - Number(h1),
-      min: (minutes1 + minutes2) % 60,
-      day: wd2,
-    };
-  } else {
-    return {
-      hours: 24 - Number(h1) + Number(h2),
-      min: (minutes1 + minutes2) % 60,
-      day: wd2,
-    };
-  }
+  let msec = diff;
+  let hh = Math.floor(msec / 1000 / 60 / 60);
+  msec -= hh * 1000 * 60 * 60;
+  let mm = Math.floor(msec / 1000 / 60);
+  msec -= mm * 1000 * 60;
+  let ss = Math.floor(msec / 1000);
+  msec -= ss * 1000;
+
+  return {
+    hours: hh,
+    min: mm,
+    day: wd2,
+  };
 };
 
 export const helper = (time) => {
-  var hours =
-    time.getHours() == 0
+  let hours =
+    Number(time.getHours()) === 0
       ? "12"
       : time.getHours() > 12
       ? time.getHours() - 12
       : time.getHours();
-  var minutes = (time.getMinutes() < 10 ? "0" : "") + time.getMinutes();
-  var ampm = time.getHours() < 12 ? "AM" : "PM";
-  var formattedTime = hours + ":" + minutes + " " + ampm;
+  let minutes = (time.getMinutes() < 10 ? "0" : "") + time.getMinutes();
+  let ampm = time.getHours() < 12 ? "AM" : "PM";
+  let formattedTime = hours + ":" + minutes + " " + ampm;
   return formattedTime;
 };
