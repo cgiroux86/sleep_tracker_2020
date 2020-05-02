@@ -165,3 +165,41 @@ body {
   display: flex;
   align-items: center;
 }
+.analyzer-img {
+  height: 400px;
+  width: 450px;
+  border-radius: 20px;
+  margin-top: 30px;
+}
+
+.analyzer-wrapper {
+  display: flex;
+  justify-content: space-evenly;
+
+  margin: 10% auto;
+  width: 70%;
+}
+.hours-wrapper {
+  display: flex;
+  flex-direction: column;
+  justify-items: space-around;
+  width: 40%;
+}
+.happy-wrapper {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  font-size: 2.8rem;
+  margin-bottom: 10%;
+}
+.continue-tracking {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.grin {
+  color: green;
+}
+.frown {
+  color: red;
+}

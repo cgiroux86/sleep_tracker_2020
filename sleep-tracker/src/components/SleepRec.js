@@ -19,15 +19,15 @@ const SleepRec = () => {
   }, [id]);
   return (
     <div className="sleepRec">
-      {data.length > 25 ? (
+      {data.length > 10 ? (
         <div className="sleep-icon">
           <p style={{ margin: "10px" }}>Analyzer</p>
-          <FontAwesomeIcon icon={faCheckCircle} />
+          <FontAwesomeIcon icon={faCheckCircle} className="grin" />
         </div>
       ) : (
         <div className="sleep-icon">
           <p style={{ marginRight: "10px" }}>Analyzer</p>{" "}
-          <FontAwesomeIcon icon={faHourglass} />
+          <FontAwesomeIcon icon={faHourglass} className="frown" />
         </div>
       )}
     </div>

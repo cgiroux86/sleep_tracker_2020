@@ -173,3 +173,11 @@ export const StyledModal = styled(Modal)`
   
   }
 `;
+
+export const StyledButton = styled(Button)`
+   {
+    background: black;
+    border: 1px solid #39869d;
+    color: #39869d;
+  }
+`;

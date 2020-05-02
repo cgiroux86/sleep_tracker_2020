@@ -8,6 +8,7 @@ import Login from "./components/Login";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import AddEntry from "./components/AddEntry";
+import Analyzer from "./components/Analyzer";
 
 function App() {
   return (
@@ -26,6 +27,9 @@ function App() {
           </Route>
           <Route exact path="/add-entry">
             <AddEntry />
+          </Route>
+          <Route exact path="/analyzer">
+            <Analyzer />
           </Route>
         </div>
       </Router>

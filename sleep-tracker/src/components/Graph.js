@@ -31,7 +31,7 @@ const Graph = () => {
         data={formatted}
         margin={{
           top: 10,
-          right: 70,
+          right: 60,
           left: 10,
           bottom: 10,
         }}
