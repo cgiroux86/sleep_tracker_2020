@@ -13,7 +13,7 @@ import {
   LoginForm,
   InputContainer,
   TextContainer,
-  Button,
+  LoginButton,
   LoginButtonContainer,
 } from "../styles/authStyles";
 import {
@@ -142,12 +142,12 @@ const Login = () => {
           </FormControl>
           {state.error && <p style={{ color: "red" }}>{state.error}</p>}
         </InputContainer>
-        <div className="checkbox">
-          <label>Stay logged in?</label>
-          <input type="checkbox" onChange={loggedInOut}></input>
-        </div>
         <LoginButtonContainer>
-          <Button onClick={handleLogin}>Login</Button>
+          <div className="checkbox">
+            <label>Stay logged in?</label>
+            <input type="checkbox" onChange={loggedInOut}></input>
+          </div>
+          <LoginButton onClick={handleLogin}>Login</LoginButton>
         </LoginButtonContainer>
       </LoginForm>
     </LoginContainer>

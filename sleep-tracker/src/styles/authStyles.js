@@ -92,7 +92,7 @@ export const LoginButtonContainer = styled.div`
    {
     position: relative;
     left: 40px;
-    bottom: 50px;
+    height: 100px;
   }
 `;
 
@@ -194,5 +194,11 @@ export const RFContainer = styled(Container)`
    {
     display: flex;
     flex-direction: column;
+  }
+`;
+
+export const LoginButton = styled(Button)`
+   {
+    margin-top: 30px;
   }
 `;
