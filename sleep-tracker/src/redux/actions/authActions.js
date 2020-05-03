@@ -48,11 +48,12 @@ export const loginSuccess = () => {
 export const handleLogin = (user) => (dispatch) => {
   Axios.post("https://sleep-tracker2020.herokuapp.com/api/auth/login", user)
     .then((res) => {
+      console.log(res);
       localStorage.setItem("token", res.data.token);
       dispatch(setUser(res.data.user));
       dispatch(loginSuccess());
     })
-    .catch((err) => dispatch(loginFailure(err)));
+    .catch((err) => dispatch(loginFailure("invalid credentials")));
 };
 
 export const setData = (data) => {

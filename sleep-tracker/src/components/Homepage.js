@@ -35,19 +35,24 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 import ModalForm from "../components/ModalForm";
 import DeleteModal from "./DeleteModal";
 import MoodScore from "./MoodScore";
-import SleepRec from "../components/SleepRec";
+import { useHistory } from "react-router-dom";
 
 const Homepage = () => {
   const userInfo = useSelector((state) => state);
   const dispatch = useDispatch();
+  const history = useHistory();
   const [expanded, setExpanded] = useState(false);
   const [weeks, setWeeks] = useState(userInfo.weeks);
   const [open, setOpen] = useState(false);
+  console.log(userInfo);
 
   useMemo(() => {
     setWeeks(userInfo.weeks);
   }, [userInfo.weeks]);
 
+  useEffect(() => {
+    userInfo.error && history.push("/login");
+  }, [userInfo.error]);
   useEffect(() => {
     if (userInfo.data) {
       const token = localStorage.getItem("token");
@@ -62,9 +67,9 @@ const Homepage = () => {
         }
       )
         .then((res) => {
+          dispatch(loginSuccess());
           dispatch(setData(res.data));
           dispatch(getWeeks(getTotalWeeks()));
-          dispatch(loginSuccess());
         })
         .catch((err) => console.log(err));
     }

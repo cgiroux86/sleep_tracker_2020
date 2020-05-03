@@ -50,6 +50,7 @@ export const reducer = (state = inititalState, action) => {
       return {
         ...state,
         loggedIn: true,
+        error: "",
       };
     }
     case SET_DATA: {

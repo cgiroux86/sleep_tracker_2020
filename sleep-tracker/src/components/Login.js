@@ -21,6 +21,8 @@ import {
   setData,
   loginSuccess,
   getWeeks,
+  setUser,
+  loginFailure,
 } from "../redux/actions/authActions";
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
@@ -47,6 +49,7 @@ const Login = () => {
       })
       .catch((err) => console.log(err));
   }
+
   const state = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -62,18 +65,24 @@ const Login = () => {
     setInput({ ...input, showPassword: !input.showPassword });
   };
 
-  const handleLogin = (e) => {
-    e.preventDefault();
+  const handleLogin = () => {
     const creds = { email: input.email, password: input.password };
-    dispatch(login(creds));
-    history.push("/homepage");
-    return logged ? localStorage.setItem("logged", true) : null;
+    Axios.post("https://sleep-tracker2020.herokuapp.com/api/auth/login", creds)
+      .then((res) => {
+        console.log(res);
+        localStorage.setItem("token", res.data.token);
+        dispatch(setUser(res.data.user));
+        dispatch(loginSuccess());
+        history.push("/homepage");
+        return logged ? localStorage.setItem("logged", true) : null;
+      })
+      .catch((err) => dispatch(loginFailure("invalid credentials")));
   };
 
   const loggedInOut = () => {
     setLogged(!logged);
-    console.log(logged);
   };
+
   return (
     <LoginContainer>
       <TextContainer>
@@ -131,6 +140,7 @@ const Login = () => {
               labelWidth={70}
             />
           </FormControl>
+          {state.error && <p style={{ color: "red" }}>{state.error}</p>}
         </InputContainer>
         <label>Stay logged in?</label>
         <input type="checkbox" onChange={loggedInOut}></input>

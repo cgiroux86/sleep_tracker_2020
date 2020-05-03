@@ -1,6 +1,5 @@
 import React from "react";
 import styled from "styled-components";
-import RegisterForm from "./RF";
 import RegForm from "./RegForm";
 
 const Container = styled.div`
