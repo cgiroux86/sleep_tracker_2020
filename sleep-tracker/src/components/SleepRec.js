@@ -26,7 +26,9 @@ const SleepRec = () => {
         </div>
       ) : (
         <div className="sleep-icon">
-          <p style={{ marginRight: "10px" }}>Analyzer</p>{" "}
+          <p style={{ marginRight: "10px", textDecoration: "none" }}>
+            Analyzer
+          </p>
           <FontAwesomeIcon icon={faHourglass} className="frown" />
         </div>
       )}

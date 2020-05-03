@@ -9,6 +9,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import AddEntry from "./components/AddEntry";
 import Analyzer from "./components/Analyzer";
+import RF from "./components/RF";
+import RegForm from "./components/RegForm";
 
 function App() {
   return (
@@ -30,6 +32,12 @@ function App() {
           </Route>
           <Route exact path="/analyzer">
             <Analyzer />
+          </Route>
+          <Route exact path="/rf">
+            <RF />
+          </Route>
+          <Route exact path="/regform">
+            <RegForm />
           </Route>
         </div>
       </Router>

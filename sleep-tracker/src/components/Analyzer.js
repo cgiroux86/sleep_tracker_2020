@@ -6,10 +6,12 @@ import { getHours } from "../utils/helpers";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faGrin, faFrown } from "@fortawesome/free-regular-svg-icons";
 import { StyledButton } from "../styles/authStyles";
+import { useHistory } from "react-router-dom";
 
 const Analyzer = () => {
   const info = useSelector((state) => state);
   const [data, setData] = useState([]);
+  const history = useHistory();
 
   const sleepCalculator =
     data.length > 0
@@ -30,7 +32,9 @@ const Analyzer = () => {
       .catch((err) => console.log(err));
   }, [info.id]);
 
-  console.log(data);
+  const handleClick = () => {
+    history.push("/homepage");
+  };
   return (
     <div className="analyzer-wrapper">
       <div className="hours-wrapper">
@@ -62,7 +66,7 @@ const Analyzer = () => {
             : "We need more entries before we can make a reccomendation"}
         </div>
         <div className="continue-tracking">
-          <StyledButton>Continue Tracking</StyledButton>
+          <StyledButton onClick={handleClick}>Continue Tracking</StyledButton>
         </div>
       </div>
       <img className="analyzer-img" src={img}></img>

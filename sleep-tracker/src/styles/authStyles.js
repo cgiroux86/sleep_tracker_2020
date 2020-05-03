@@ -1,5 +1,6 @@
 import styled from "styled-components";
 import { Modal } from "@material-ui/core";
+import { Link } from "react-router-dom";
 export const Container = styled.div`
    {
     display: flex;
@@ -179,5 +180,18 @@ export const StyledButton = styled(Button)`
     background: black;
     border: 1px solid #39869d;
     color: #39869d;
+  }
+`;
+
+export const StyledLink = styled(Link)`
+   {
+    text-decoration: none;
+  }
+`;
+
+export const RFContainer = styled(Container)`
+   {
+    display: flex;
+    flex-direction: column;
   }
 `;

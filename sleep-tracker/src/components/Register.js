@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
-import RegisterForm from "./RegisterForm";
+import RegisterForm from "./RF";
+import RegForm from "./RegForm";
 
 const Container = styled.div`
    {
@@ -17,8 +18,7 @@ const Mission = styled.div`
     flex-direction: column;
     width: 50%;
     position: relative;
-    top: -100px;
-    left: 100px;
+    left: 50px;
     text-align: center;
     font-size: 2rem;
   }
@@ -38,7 +38,7 @@ const Register = () => {
         <p>Let Sleep Tracker help you discover your ideal sleep schedule.</p>
       </Mission>
       <FormContainer>
-        <RegisterForm />
+        <RegForm />
       </FormContainer>
     </Container>
   );

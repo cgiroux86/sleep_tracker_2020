@@ -155,6 +155,7 @@ body {
   margin: 0 auto;
   color: #e0e0e0;
   text-align: center;
+  text-decoration: none;
 }
 
 .home-wrapper {
@@ -164,6 +165,7 @@ body {
 .sleep-icon {
   display: flex;
   align-items: center;
+  text-decoration: none;
 }
 .analyzer-img {
   height: 400px;
@@ -202,4 +204,59 @@ body {
 }
 .frown {
   color: red;
+}
+.login {
+  text-decoration: none;
+  color: #e0e0e0;
+}
+.visibility {
+  position: relative;
+  right: 40px;
+  bottom: 58px;
+  left: 450px;
+  font-size: 59px;
+}
+.input-form {
+  background: #121212;
+  font-size: large;
+  height: 40px;
+  border: #121212;
+  color: #e0e0e0;
+  ::placeholder {
+    color: #e0e0e0;
+  }
+}
+.form-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  margin-top: 10%;
+  padding-top: 5%;
+  top: 100px;
+  left: 100px;
+  position: relative;
+  width: 60%;
+}
+
+.names {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 500px;
+  margin: 5% auto;
+}
+
+.full-length {
+  width: 100%;
+  background-color: #121212;
+  font-size: large;
+  border: #121212;
+  height: 40px;
+  margin: 5% auto;
+  color: #e0e0e0;
+}
+.reg-button {
+  position: relative;
+  bottom: 80px;
 }

@@ -88,3 +88,10 @@ export const helper = (time) => {
   let formattedTime = hours + ":" + minutes + " " + ampm;
   return formattedTime;
 };
+
+export const sleepCalculator = (arr, t1, t2) => {
+  arr.reduce(
+    (a, b) =>
+      new Date(a.sleep_start).getTime() - new Date(a).getTime() + new Date(b)
+  );
+};

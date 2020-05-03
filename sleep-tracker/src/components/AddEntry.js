@@ -37,10 +37,7 @@ const AddEntry = () => {
 
   const [startDate, setStartDate] = useState({ date: new Date() });
 
-  // i
-
   const hanldeDateCahnge = (date) => {
-    // console.log(date);
     setStartDate({ ...date, date: date });
   };
 

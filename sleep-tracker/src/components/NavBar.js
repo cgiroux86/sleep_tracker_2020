@@ -1,8 +1,9 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import { setLogout } from "../redux/actions/authActions";
-import { useHistory } from "react-router-dom";
+import { useHistory, Link } from "react-router-dom";
 import SleepRec from "./SleepRec";
+import { StyledLink } from "../styles/authStyles";
 
 const NavBar = () => {
   const logged = useSelector((state) => state.loggedIn);
@@ -17,11 +18,13 @@ const NavBar = () => {
   return (
     <div className="navBar">
       <h1>Sleep Tracker</h1>
-      <div>
-        <SleepRec />
-      </div>
+      <StyledLink to="/analyzer" className="link">
+        <SleepRec className="link" />
+      </StyledLink>
       <div>Settings</div>
-      <div onClick={handleLogout}>{logged ? "Log Out" : "Login"}</div>
+      <StyledLink to="/login" className="login" onClick={handleLogout}>
+        {logged ? "Log Out" : "Login"}
+      </StyledLink>
     </div>
   );
 };
