@@ -9,8 +9,8 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 import Homepage from "./components/Homepage";
 import AddEntry from "./components/AddEntry";
 import Analyzer from "./components/Analyzer";
-import RF from "./components/RF";
 import RegForm from "./components/RegForm";
+import { PrivateRoute } from "./components/PrivateRoute";
 
 function App() {
   return (
@@ -24,21 +24,10 @@ function App() {
           <Route exact path="/login">
             <Login />
           </Route>
-          <Route exact path="/homepage">
-            <Homepage />
-          </Route>
-          <Route exact path="/add-entry">
-            <AddEntry />
-          </Route>
-          <Route exact path="/analyzer">
-            <Analyzer />
-          </Route>
-          <Route exact path="/rf">
-            <RF />
-          </Route>
-          <Route exact path="/regform">
-            <RegForm />
-          </Route>
+          <PrivateRoute exact path="/homepage" component={Homepage} />
+          <PrivateRoute exact path="/add-entry" component={AddEntry} />
+          <PrivateRoute exact path="/analyzer" component={Analyzer} />
+          <PrivateRoute exact path="/regform" component={RegForm} />
         </div>
       </Router>
     </Provider>

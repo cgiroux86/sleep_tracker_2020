@@ -19,7 +19,7 @@ const NavBar = () => {
     <div className="navBar">
       <h1>Sleep Tracker</h1>
       <StyledLink to="/analyzer" className="link">
-        <SleepRec className="link" />
+        <SleepRec logged={logged} className="link" />
       </StyledLink>
       <div>Settings</div>
       <StyledLink to="/login" className="login" onClick={handleLogout}>

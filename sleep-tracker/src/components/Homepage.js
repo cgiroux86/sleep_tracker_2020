@@ -51,9 +51,6 @@ const Homepage = () => {
   }, [userInfo.weeks]);
 
   useEffect(() => {
-    userInfo.error && history.push("/login");
-  }, [userInfo.error]);
-  useEffect(() => {
     if (userInfo.data) {
       const token = localStorage.getItem("token");
       let [start, end] = getWeek(new Date());
