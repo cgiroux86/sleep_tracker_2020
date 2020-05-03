@@ -68,8 +68,9 @@ export const InputContainer = styled.div`
 
 export const TextContainer = styled.div`
    {
-    width: 30%;
+    width: 40%;
     position: relative;
+    text-align: center;
     top: 250px;
     left: 150px;
     font-size: 1.5rem;

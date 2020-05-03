@@ -142,8 +142,10 @@ const Login = () => {
           </FormControl>
           {state.error && <p style={{ color: "red" }}>{state.error}</p>}
         </InputContainer>
-        <label>Stay logged in?</label>
-        <input type="checkbox" onChange={loggedInOut}></input>
+        <div className="checkbox">
+          <label>Stay logged in?</label>
+          <input type="checkbox" onChange={loggedInOut}></input>
+        </div>
         <LoginButtonContainer>
           <Button onClick={handleLogin}>Login</Button>
         </LoginButtonContainer>

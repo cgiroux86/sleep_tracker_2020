@@ -21,7 +21,7 @@ const NavBar = () => {
       <StyledLink to="/analyzer" className="link">
         <SleepRec logged={logged} className="link" />
       </StyledLink>
-      <div>Settings</div>
+      <StyledLink className="login">Settings</StyledLink>
       <StyledLink to="/login" className="login" onClick={handleLogout}>
         {logged ? "Log Out" : "Login"}
       </StyledLink>

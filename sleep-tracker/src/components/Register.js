@@ -7,7 +7,7 @@ const Container = styled.div`
     display: flex;
     color: #e0e0e0;
     width: 100%;
-    justify-content: space-around;
+    justify-content: space-evenly;
     align-items: center;
   }
 `;
@@ -15,7 +15,7 @@ const Mission = styled.div`
    {
     display: flex;
     flex-direction: column;
-    width: 50%;
+    width: 40%;
     position: relative;
     left: 50px;
     text-align: center;
