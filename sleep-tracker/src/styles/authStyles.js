@@ -85,6 +85,12 @@ export const Button = styled.button`
     background-color: #39869d;
     color: #e0e0e0;
     border-radius: 10px;
+    @media (max-width: 768px) {
+      width: 150px;
+      margin-top: 0;
+      position: relative;
+     top: 5px;
+     left: 60px;
   }
 `;
 

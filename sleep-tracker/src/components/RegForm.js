@@ -38,7 +38,8 @@ const RegForm = () => {
                 },
               })}
             ></input>
-            {errors.firstName && <p>{errors.firstName.message}</p>}
+
+            {errors.first_name && <p>{errors.first_name.message}</p>}
           </div>
           <div>
             <input
@@ -53,8 +54,8 @@ const RegForm = () => {
                 },
               })}
             ></input>
-            {errors.lastName && (
-              <p style={{ color: "#e0e0e0" }}>{errors.lastName.message}</p>
+            {errors.last_name && (
+              <p style={{ color: "#e0e0e0" }}>{errors.last_name.message}</p>
             )}
           </div>
         </div>
@@ -96,7 +97,7 @@ const RegForm = () => {
         </div>
 
         <Button type="submti" className="reg-button">
-          submit
+          Sign up!
         </Button>
       </form>
     </div>

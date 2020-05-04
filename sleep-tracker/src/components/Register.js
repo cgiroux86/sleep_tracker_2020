@@ -9,23 +9,39 @@ const Container = styled.div`
     width: 100%;
     justify-content: space-evenly;
     align-items: center;
+    @media (max-width: 800px) {
+      flex-direction: column;
+      height: auto;
+    }
   }
 `;
 const Mission = styled.div`
    {
     display: flex;
     flex-direction: column;
-    width: 40%;
+    width: 50%;
     position: relative;
-    left: 50px;
+    left: 100px;
     text-align: center;
     font-size: 2rem;
+    @media (max-width: 768px) {
+      font-size: 1.5rem;
+      position: relative;
+      left: 0px;
+    }
   }
 `;
 const FormContainer = styled.div`
    {
-    width: 50%;
+    width: 70%;
     display: flex;
+    align-items: center;
+    justify-content: center;
+    @media (max-width: 800px) {
+      justify-content: center;
+      align-content: center;
+      height: auto;
+    }
   }
 `;
 

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSelector } from "react-redux";
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip } from "recharts";
 import { getHours } from "../utils/helpers";
-import { TitleWrapper, Button, ButtonHolder } from "../styles/authStyles";
+import { TitleWrapper, StyledButton, ButtonHolder } from "../styles/authStyles";
 import { useHistory } from "react-router-dom";
 
 const Graph = () => {
@@ -44,7 +44,9 @@ const Graph = () => {
         <Bar dataKey="hours" fill="#39869d" />
       </BarChart>
       <ButtonHolder>
-        <Button onClick={() => history.push("/add-entry")}>Add session</Button>
+        <StyledButton onClick={() => history.push("/add-entry")}>
+          Add session
+        </StyledButton>
       </ButtonHolder>
     </div>
   );

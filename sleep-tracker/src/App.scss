@@ -1,3 +1,5 @@
+$breakpoint-tablet: 768px;
+
 body {
   background: black;
 }
@@ -215,6 +217,11 @@ body {
   bottom: 58px;
   left: 450px;
   font-size: 59px;
+  @media (max-width: $breakpoint-tablet) {
+    right: 0;
+    bottom: 43px;
+    left: 260px;
+  }
 }
 .input-form {
   background: #121212;
@@ -225,18 +232,32 @@ body {
   ::placeholder {
     color: #e0e0e0;
   }
+  @media (max-width: $breakpoint-tablet) {
+    font-size: small;
+    width: 300px;
+    height: 30px;
+    margin: 5% auto;
+  }
 }
 .form-container {
   display: flex;
   flex-direction: column;
   align-items: center;
-
   margin-top: 10%;
   padding-top: 5%;
-  top: 100px;
-  left: 100px;
   position: relative;
+  top: 50px;
   width: 60%;
+  @media (max-width: $breakpoint-tablet) {
+    top: 0px;
+    left: 0px;
+    margin-top: 0;
+    padding-top: 0;
+    height: auto;
+    justify-content: space-between;
+    width: 100%;
+    height: auto;
+  }
 }
 
 .names {
@@ -245,6 +266,12 @@ body {
   align-items: center;
   width: 500px;
   margin: 5% auto;
+  @media (max-width: $breakpoint-tablet) {
+    flex-direction: column;
+    width: 100%;
+    margin: 0 auto;
+    justify-content: space-between;
+  }
 }
 
 .full-length {
@@ -255,6 +282,12 @@ body {
   height: 40px;
   margin: 5% auto;
   color: #e0e0e0;
+  @media (max-width: $breakpoint-tablet) {
+    font-size: small;
+    height: 30px;
+    width: 100%;
+    margin: 5% auto;
+  }
 }
 .reg-button {
   position: relative;
@@ -263,4 +296,28 @@ body {
 .checkbox {
   display: flex;
   flex-direction: column;
+}
+.nav-bar {
+  display: none;
+  @media (max-width: $breakpoint-tablet) {
+    display: flex;
+    justify-content: flex-start;
+  }
+}
+.navBar {
+  @media (max-width: $breakpoint-tablet) {
+    display: none;
+  }
+}
+.appBar {
+  color: #121212;
+}
+
+.MuiAppBar-root {
+  background-color: #121212;
+  color: #e0e0e0;
+}
+
+.MuiMenu-paper {
+  padding: 20px;
 }
