@@ -26,15 +26,19 @@ const Graph = () => {
         <p style={{ color: "#e0e0e0" }}>Hours slept</p>
       </TitleWrapper>
       <BarChart
-        width={768}
-        height={550}
+        width={window.screen.width < 800 ? window.screen.availWidth : 700}
+        height={window.screen.height / 2.5}
         data={formatted}
-        margin={{
-          top: 10,
-          right: 60,
-          left: 10,
-          bottom: 10,
-        }}
+        margin={
+          window.screen.availWidth > 768
+            ? {
+                top: 10,
+                right: 60,
+                left: 10,
+                bottom: 10,
+              }
+            : { top: 0, left: 0, right: 60, bottom: 0 }
+        }
       >
         <CartesianGrid strokeDasharray="3 3" fill="#121212" />
         <XAxis dataKey="day" />

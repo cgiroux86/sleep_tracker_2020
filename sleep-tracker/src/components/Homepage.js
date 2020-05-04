@@ -38,6 +38,7 @@ import MoodScore from "./MoodScore";
 import { useHistory } from "react-router-dom";
 
 const Homepage = () => {
+  console.log(window.screen.availWidth);
   const userInfo = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useHistory();
@@ -120,16 +121,19 @@ const Homepage = () => {
                   backgroundColor: " #121212",
                   color: "#e0e0e0",
                   margin: "24px auto",
-                  width: "600px",
+                  width: window.screen.availWidth < 800 ? 320 : 600,
                 }}
               >
                 <ExpansionPanelSummary
-                  style={{}}
                   onClick={() => setExpanded(!expanded)}
                   expandIcon={<ExpandMoreIcon style={{ color: "#e0e0e0" }} />}
                 >
                   <Typography
-                    style={{ marginLeft: "35%" }}
+                    style={
+                      window.screen.avaiWidth > 768
+                        ? { marginLeft: "35%" }
+                        : { margin: "2px", textAlign: "center" }
+                    }
                   >{`${weeks[0][0]
                     .toString()
                     .split(" ")

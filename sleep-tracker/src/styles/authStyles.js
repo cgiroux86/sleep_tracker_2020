@@ -50,6 +50,11 @@ export const LoginContainer = styled.div`
     justify-content: space-evenly;
     color: #e0e0e0;
   }
+  @media (max-width: 760px) {
+    flex-direction: column;
+    align-content: center;
+    margin: 0 auto;
+  }
 `;
 export const LoginForm = styled.div`
    {
@@ -59,10 +64,16 @@ export const LoginForm = styled.div`
     top: 350px;
     left: 150px;
   }
+  @media (max-width: 768px) {
+    top: 0;
+    left: 0;
+  }
 `;
 export const InputContainer = styled.div`
    {
     padding: 5%;
+    @media (max-width: 768px) {
+    }
   }
 `;
 
@@ -74,6 +85,15 @@ export const TextContainer = styled.div`
     top: 250px;
     left: 150px;
     font-size: 1.5rem;
+  }
+  @media (max-width: 768px) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    top: 0;
+    left: 0;
   }
 `;
 
@@ -105,6 +125,10 @@ export const LoginButtonContainer = styled.div`
 export const HomeContainer = styled.div`
    {
     display: flex;
+    @media (max-width: 768px) {
+      width: 80%;
+      margin: 0 auto;
+    }
   }
 `;
 
@@ -113,7 +137,7 @@ export const PaperContainer = styled.div`
     display: flex;
     flex-wrap: wrap;
     flex-direction: column;
-    width: 50%;
+    width: 100%;
     justify-content: center;
   }
 `;
@@ -124,6 +148,10 @@ export const Paper = styled.div`
     width: auto;
     margin: 2%;
   }
+  @media (max-width: 768px) {
+    width: 100%;
+    margin: 1% auto;
+  }
 `;
 
 export const Holder = styled.div`
@@ -133,6 +161,10 @@ export const Holder = styled.div`
     align-items: flex-start;
     width: 90%;
     margin: 0 auto;
+    @media (max-width: 768px) {
+      flex-direction: column;
+      width: 100%;
+    }
   }
 `;
 
@@ -170,6 +202,10 @@ export const ButtonHolder = styled.div`
     position: relative;
     bottom: 75px;
   }
+  @media (max-width: 768px) {
+    top: 1px;
+    right: 52px;
+  }
 `;
 
 export const StyledModal = styled(Modal)`
@@ -187,6 +223,8 @@ export const StyledButton = styled(Button)`
     background: black;
     border: 1px solid #39869d;
     color: #39869d;
+    @media (max-width: 768px) {
+    }
   }
 `;
 

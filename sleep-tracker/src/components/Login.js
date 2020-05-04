@@ -99,7 +99,10 @@ const Login = () => {
               Email
             </InputLabel>
             <OutlinedInput
-              style={{ color: "white", width: "560px" }}
+              style={{
+                color: "white",
+                width: window.screen.availWidth > 768 ? 560 : 300,
+              }}
               id="outlined-adornment-email"
               type="text"
               value={input.email}
@@ -118,7 +121,10 @@ const Login = () => {
               Password
             </InputLabel>
             <OutlinedInput
-              style={{ width: "560px", color: "#e0e0e0" }}
+              style={{
+                width: window.screen.availWidth > 768 ? 560 : 300,
+                color: "#e0e0e0",
+              }}
               id="outlined-adornment-password"
               type={input.showPassword ? "text" : "password"}
               value={input.password}

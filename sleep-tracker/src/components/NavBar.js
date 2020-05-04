@@ -69,12 +69,17 @@ const NavBar = () => {
                 {logged ? "Log Out" : "Login"}
               </StyledLink>
             </Menu>
-            <h2 style={{ textAlign: "center" }}>Sleep Tracker</h2>
+            <h2
+              onClick={() => history.push("/homepage")}
+              style={{ textAlign: "center" }}
+            >
+              Sleep Tracker
+            </h2>
           </Toolbar>
         </AppBar>
       </div>
       <div className="navBar">
-        <h1>Sleep Tracker</h1>
+        <h1 onClick={() => history.push("/homepage")}>Sleep Tracker</h1>
         <StyledLink to="/analyzer" className="link">
           <SleepRec logged={logged} className="link" />
         </StyledLink>
