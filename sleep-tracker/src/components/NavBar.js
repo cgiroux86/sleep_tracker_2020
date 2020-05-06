@@ -4,7 +4,7 @@ import { setLogout } from "../redux/actions/authActions";
 import { useHistory } from "react-router-dom";
 import SleepRec from "./SleepRec";
 import { StyledLink } from "../styles/authStyles";
-import { AppBar, Toolbar, Icon, IconButton, Menu } from "@material-ui/core";
+import { AppBar, Toolbar, IconButton, Menu } from "@material-ui/core";
 import { Menu as MenuIcon } from "@material-ui/icons";
 
 const NavBar = () => {
@@ -43,18 +43,14 @@ const NavBar = () => {
               <MenuIcon />
             </IconButton>
             <Menu anchorEl={anchorEl} open={drawer} onClose={handleDrawer}>
-              <StyledLink
-                onClick={() => setDrawer(!drawer)}
-                to="/analyzer"
-                className="link"
-              >
+              <StyledLink onClick={() => setDrawer(!drawer)} to="/analyzer">
                 <SleepRec logged={logged} className="link" />
               </StyledLink>
 
               <StyledLink
                 onClick={() => setDrawer(!drawer)}
                 className="login"
-                style={{ marginBottom: "20px" }}
+                style={{ color: "black" }}
               >
                 Settings
               </StyledLink>
@@ -79,13 +75,13 @@ const NavBar = () => {
         </AppBar>
       </div>
       <div className="navBar">
-        <h1 onClick={() => history.push("/homepage")}>Sleep Tracker</h1>
+        <h1>Sleep Tracker</h1>
         <StyledLink to="/analyzer" className="link">
           <SleepRec logged={logged} className="link" />
         </StyledLink>
         <StyledLink className="login">Settings</StyledLink>
         <StyledLink to="/login" className="login" onClick={handleLogout}>
-          {logged ? "Log Out" : "Login"}
+          {logged ? "Log Out" : "Log in"}
         </StyledLink>
       </div>
     </div>

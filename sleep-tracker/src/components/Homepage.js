@@ -38,14 +38,12 @@ import MoodScore from "./MoodScore";
 import { useHistory } from "react-router-dom";
 
 const Homepage = () => {
-  console.log(window.screen.availWidth);
   const userInfo = useSelector((state) => state);
   const dispatch = useDispatch();
   const history = useHistory();
   const [expanded, setExpanded] = useState(false);
   const [weeks, setWeeks] = useState(userInfo.weeks);
   const [open, setOpen] = useState(false);
-  console.log(userInfo);
 
   useMemo(() => {
     setWeeks(userInfo.weeks);

@@ -5,6 +5,7 @@ import { Button } from "../styles/authStyles";
 import { handleRegister } from "../redux/actions/authActions";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
+
 const RegForm = () => {
   const [showPassword, setShowPassword] = useState(false);
   const dispatch = useDispatch();

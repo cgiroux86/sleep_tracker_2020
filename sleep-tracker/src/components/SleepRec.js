@@ -18,7 +18,12 @@ const SleepRec = ({ logged }) => {
       .catch((err) => console.log(err));
   }, [userInfo.id]);
   return (
-    <div className="sleepRec">
+    <div
+      style={{
+        color: window.screen.availWidth < 768 && "black",
+      }}
+      className="sleepRec"
+    >
       {data.length > 10 ? (
         <div className="sleep-icon">
           <p style={{ margin: "10px" }}>Analyzer</p>
