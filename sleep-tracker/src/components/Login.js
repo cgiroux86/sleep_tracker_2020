@@ -27,6 +27,8 @@ import {
 import { useHistory } from "react-router-dom";
 import Axios from "axios";
 import { getWeek, formatDate, getTotalWeeks } from "../utils/helpers";
+import { GoogleLogin } from "react-google-login";
+import axios from "axios";
 
 const Login = () => {
   let [start, end] = getWeek(new Date());
@@ -81,6 +83,22 @@ const Login = () => {
 
   const loggedInOut = () => {
     setLogged(!logged);
+  };
+
+  const responseGoogle = (response) => {
+    const creds = {
+      email: response.profileObj.email,
+      password: response.profileObj.googleId,
+    };
+    axios
+      .post(`https://sleep-tracker2020.herokuapp.com/api/auth/login`, creds)
+      .then((res) => {
+        localStorage.setItem("token", res.data.token);
+        dispatch(setUser(res.data.user));
+        dispatch(loginSuccess());
+        history.push("/homepage");
+      })
+      .catch((err) => console.log(err));
   };
 
   return (
@@ -155,6 +173,16 @@ const Login = () => {
           </div>
           <LoginButton onClick={handleLogin}>Login</LoginButton>
         </LoginButtonContainer>
+        <GoogleLogin
+          clientId="399318981538-8eudhb11tcao498l94vojqoil44spmrn.apps.googleusercontent.com"
+          buttonText="Login"
+          onSuccess={responseGoogle}
+          onFailure={responseGoogle}
+          cookiePolicy={"single_host_origin"}
+          approvalPrompt="force"
+          responseType="id_token"
+          isSignedIn
+        />
       </LoginForm>
     </LoginContainer>
   );

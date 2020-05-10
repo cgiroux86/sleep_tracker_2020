@@ -37,7 +37,7 @@ const Graph = () => {
                 left: 10,
                 bottom: 10,
               }
-            : { top: 0, left: 0, right: 60, bottom: 0 }
+            : { top: 0, left: 0, right: 50, bottom: 0 }
         }
       >
         <CartesianGrid strokeDasharray="3 3" fill="#121212" />

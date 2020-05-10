@@ -119,6 +119,7 @@ export const LoginButtonContainer = styled.div`
     position: relative;
     left: 40px;
     height: 100px;
+    border: 1px solid lime;
   }
 `;
 

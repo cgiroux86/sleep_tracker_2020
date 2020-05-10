@@ -48,6 +48,7 @@ const NavBar = () => {
               </StyledLink>
 
               <StyledLink
+                to="/login"
                 onClick={() => setDrawer(!drawer)}
                 className="login"
                 style={{ color: "black" }}
@@ -79,7 +80,9 @@ const NavBar = () => {
         <StyledLink to="/analyzer" className="link">
           <SleepRec logged={logged} className="link" />
         </StyledLink>
-        <StyledLink className="login">Settings</StyledLink>
+        <StyledLink to="/settings" className="login">
+          Settings
+        </StyledLink>
         <StyledLink to="/login" className="login" onClick={handleLogout}>
           {logged ? "Log Out" : "Log in"}
         </StyledLink>

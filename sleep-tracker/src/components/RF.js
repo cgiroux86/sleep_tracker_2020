@@ -24,6 +24,7 @@ import {
 } from "../styles/authStyles";
 import { useHistory } from "react-router-dom";
 import { useForm } from "react-hook-form";
+import { GoogleLogin } from "react-google-login";
 const RegisterForm = () => {
   const [values, setValues] = useState({
     email: "",
