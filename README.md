@@ -15,18 +15,18 @@ While going to Lambda School, I was faced with the connundrum of budgeting my ti
 ## Tech/framework used
 
 <b>Front End Built with</b>
-- [React]
-- [Redux]
-- [Recharts]
-- [Material-UI]
+- React
+- Redux
+- Recharts
+- Material-UI
 
 <b>Backend End Built with</b>
-- [Node.js]
--[Express]
--[Postgres]
--[Knex]
--[JWT]
--[Google Auth[
+- Node.js
+- Express
+- Postgres
+- Knex
+- JWT
+- Google Auth
 
 
 
