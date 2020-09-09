@@ -6,7 +6,7 @@ While going to Lambda School, I was faced with the connundrum of budgeting my ti
 
 ## Build status
 
-###Deployed Version: https://sleep-tracker-2020.vercel.app/register
+### Deployed Version: https://sleep-tracker-2020.vercel.app/register
 
 ## Screenshots
 ![User Dashboard](https://user-images.githubusercontent.com/59579733/92641392-ad0f9e00-f2ac-11ea-8a12-8650593c87db.png)
